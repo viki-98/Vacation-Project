@@ -1,0 +1,114 @@
+import { FC } from 'react'
+import { useForm } from 'react-hook-form'
+import { Button } from '../../components/Button/Button'
+import { useAppDispatch } from '../../hooks/TypedAppDispatch'
+import { addNewVacation } from '../../services/VacationsService'
+import s from './AddVacationPage.module.scss'
+
+interface IAddNewVacationFormValues {
+	destination: string
+	description: string
+	startDate: string
+	endDate: string
+	price: string
+	file: File
+}
+
+export const AddVacationPage: FC = () => {
+	const dispatch = useAppDispatch()
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<IAddNewVacationFormValues>()
+
+	const onFormSubmit = async (formData: IAddNewVacationFormValues) => {
+		const priceUpdate = Number.parseFloat(formData.price)
+
+		await dispatch(addNewVacation({ ...formData, price: priceUpdate }))
+		console.log(formData)
+	}
+
+	return (
+		<div className={s.vacationPageWrapper}>
+			<div className={s.vacationFormBody}>
+				<form className={s.vacationForm} onSubmit={handleSubmit(onFormSubmit)}>
+					<input
+						className={`${s.loginInput} ${
+							errors.destination ? s.input_error : ''
+						}`}
+						type='text'
+						{...register('destination', {
+							required: 'destination is required',
+						})}
+						placeholder='destination'
+					/>
+					{errors.destination && (
+						<span className={s.inputErrorMsg}>
+							{errors.destination.message}
+						</span>
+					)}
+
+					<input
+						className={`${s.loginInput} ${
+							errors.description ? s.input_error : ''
+						}`}
+						type='text'
+						{...register('description', {
+							required: 'description is required',
+						})}
+						placeholder='description'
+					/>
+					{errors.description && (
+						<span className={s.inputErrorMsg}>
+							{errors.description.message}
+						</span>
+					)}
+
+					<input
+						className={`${s.loginInput} ${
+							errors.startDate ? s.input_error : ''
+						}`}
+						type='date'
+						{...register('startDate', { required: 'startDate is required' })}
+						placeholder='startDate'
+					/>
+					{errors.startDate && (
+						<span className={s.inputErrorMsg}>{errors.startDate.message}</span>
+					)}
+
+					<input
+						className={`${s.loginInput} ${errors.endDate ? s.input_error : ''}`}
+						type='date'
+						{...register('endDate', { required: 'endDate is required' })}
+						placeholder='endDate'
+					/>
+					{errors.endDate && (
+						<span className={s.inputErrorMsg}>{errors.endDate.message}</span>
+					)}
+
+					<input
+						className={`${s.loginInput} ${errors.price ? s.input_error : ''}`}
+						type='number'
+						{...register('price', { required: 'price is required' })}
+						placeholder='price'
+					/>
+					{errors.price && (
+						<span className={s.inputErrorMsg}>{errors.price.message}</span>
+					)}
+
+					<input
+						className={`${s.loginInput} ${errors.file ? s.input_error : ''}`}
+						type='file'
+						{...register('file', { required: 'image is required' })}
+						placeholder='image'
+					/>
+					{errors.file && (
+						<span className={s.inputErrorMsg}>{errors.file.message}</span>
+					)}
+					<Button type='submit'>Save</Button>
+				</form>
+			</div>
+		</div>
+	)
+}

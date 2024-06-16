@@ -1,0 +1,29 @@
+.gradientButton {
+	padding: 12px 20px;
+	border: none;
+	color: #fff;
+	background: linear-gradient(
+		51.29deg,
+		#003ba1 -58.24%,
+		#5800af 38.52%,
+		#fe00ff 116.11%
+	);
+	border-radius: 10px;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: 600;
+
+	&:hover {
+		background: linear-gradient(
+			51.29deg,
+			#003796 -58.24%,
+			#46008b 38.52%,
+			#fe00ff 116.11%
+		);
+	}
+
+	@media screen and (max-width: 768px) {
+		padding: 12px 20px;
+		font-size: 14px;
+	}
+}

@@ -1,0 +1,52 @@
+.sortBar {
+	width: 100%;
+	// background-color: #f0f0f0;
+	padding: 10px 20px 0 20px;
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+	align-items: center;
+	// margin-bottom: 20px;
+}
+
+.sortOption {
+	cursor: pointer;
+	padding: 3px;
+	background-color: #fff;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+	font-size: 18px;
+
+	&:hover {
+		background-color: #e0e0e0;
+	}
+
+	&.active {
+		background-color: #e0e0e0;
+	}
+}
+
+.vacationPageWrapper {
+	max-width: 90%;
+	margin: 0 auto;
+	display: grid;
+	padding: 20px 0;
+	grid-template-columns: repeat(
+		auto-fill,
+		minmax(272px, 1fr)
+	); /* Ширина колонок */
+	// gap: 20px; /* Пространство между карточками */
+	column-gap: 10px;
+	row-gap: 40px;
+	justify-items: center;
+	align-items: center;
+}
+
+.EmptyVacationPage {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: calc(100vh - 75px);
+	font-size: 1.5rem;
+	color: #333;
+}

@@ -1,0 +1,12 @@
+.chartContainer {
+	display: flex;
+
+	.chart {
+		width: 85%;
+	}
+
+	.controls {
+		width: 15%;
+		padding: 20px;
+	}
+}

@@ -1,0 +1,48 @@
+.registrationForm {
+	max-width: 50%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.loginInput {
+	border: 1px solid #d2dbe7;
+	border-radius: 10px;
+	outline: none;
+	font-size: 14px;
+	padding: 12px 20px 12px 20px;
+	transition: box-shadow 0.5s ease;
+
+	&:hover {
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); // Добавляем тень при наведении
+	}
+
+	&.input_error {
+		border-color: #ff0000;
+		animation: shake 0.5s;
+	}
+
+	@keyframes shake {
+		0% {
+			transform: translateX(0);
+		}
+		25% {
+			transform: translateX(-5px);
+		}
+		50% {
+			transform: translateX(5px);
+		}
+		75% {
+			transform: translateX(-5px);
+		}
+		100% {
+			transform: translateX(0);
+		}
+	}
+}
+
+.inputErrorMsg {
+	color: #ff0000;
+	font-size: 13px;
+}

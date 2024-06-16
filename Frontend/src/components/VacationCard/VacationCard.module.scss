@@ -1,0 +1,159 @@
+.cardWrapper {
+	max-width: 272px;
+	max-height: 320px;
+	height: 320px;
+	background-color: #efefef;
+	border-radius: 10px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	transition: box-shadow 0.5s ease;
+	width: 100%;
+
+	&:hover {
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	}
+
+	.adminBtns {
+		position: absolute;
+		top: 5px;
+		left: 5px;
+		z-index: 5;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 10px;
+		background-color: rgba(0, 0, 0, 0.582);
+		padding: 2px 4px;
+		border-radius: 50px;
+
+		.EditBtn {
+			svg {
+				width: 25px;
+				height: 25px;
+				fill: #efefef;
+				cursor: pointer;
+				transition: fill 0.3s ease, transform 0.3s ease;
+
+				&:hover {
+					fill: #bdbdbd;
+					transform: scale(1.1);
+					transition: fill 0.3s ease, transform 0.3s ease;
+				}
+			}
+		}
+
+		.deleteBtn {
+			svg {
+				width: 25px;
+				height: 25px;
+				fill: #efefef;
+				cursor: pointer;
+				transition: fill 0.3s ease, transform 0.3s ease;
+
+				&:hover {
+					fill: #bdbdbd;
+					transform: scale(1.1);
+					transition: fill 0.3s ease, transform 0.3s ease;
+				}
+			}
+		}
+	}
+
+	.cardImg {
+		width: 100%;
+		height: 153px;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		div {
+			text-align: center;
+			margin-top: 70px;
+		}
+	}
+	.cardBody {
+		padding: 10px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: start;
+		gap: 10px;
+		width: 100%;
+		flex-grow: 1;
+
+		.cardTitle {
+			font-size: 18px;
+			font-weight: 600;
+			color: #2c3a4b;
+			word-break: break-all;
+		}
+
+		.cardDateTime {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			gap: 10px;
+		}
+
+		.cardDescr {
+			font-size: 14px;
+			font-weight: 400;
+			color: #2c3a4b;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+			word-break: break-word;
+			position: relative;
+			cursor: pointer;
+
+			&.expanded {
+				-webkit-line-clamp: initial;
+				overflow: visible;
+			}
+		}
+
+		.cardPrice {
+			font-size: 16px;
+			font-weight: 600;
+			color: #2c3a4b;
+			margin-top: auto; /* Push the price to the bottom */
+			align-self: flex-start; /* Align the price to the right */
+		}
+	}
+	.likeBtn {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		z-index: 5;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 10px;
+		background-color: rgba(0, 0, 0, 0.582);
+		padding: 4px 6px;
+		border-radius: 50px;
+		color: #efefef;
+
+		img {
+			width: 25px;
+			height: 25px;
+			fill: #efefef;
+			cursor: pointer;
+			transition: transform 0.3s ease;
+
+			&:hover {
+				transform: scale(1.1);
+				transition: transform 0.3s ease;
+			}
+		}
+	}
+}
