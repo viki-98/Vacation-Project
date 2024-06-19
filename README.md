@@ -12,7 +12,7 @@ This project is called **Vacation**. It resembles a travel agency platform with 
 ### Installation
 
 1. Clone the repository:
-   git clone https://github.com/yourusername/vacation-project-frontend.git
+   git clone https://github.com/viki-98/Vacation-Project
 
 2. Navigate to the project directory:
    cd vacation-project-frontend
